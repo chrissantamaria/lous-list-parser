@@ -1,0 +1,17 @@
+{
+  "name": "lous-list-parser",
+  "version": "1.0.0",
+  "description": "Web scaper using Lou's List to grab course information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Chris Santamaria <chris@santamaria.me>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "jsdom": "^14.0.0"
+  }
+}
