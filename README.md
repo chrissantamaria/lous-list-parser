@@ -27,7 +27,7 @@ Sample response: `Computer Science`
 
 Sample call: `/api/courses?mnemonic=CS`
 Sample response:
-```json
+```
 {
     "APMA1090": [
         {
@@ -65,6 +65,6 @@ Sample response:
         }
         ...
     ],
-	...
+    ...
 }
 ```
