@@ -1,0 +1,12 @@
+// One-time run for SEAS HSS electives
+
+const { mnemonicToName } = require('./utils');
+
+const data = 'AAS CZ FRTR KOR PSYC SPTR AMEL EAST GDS LATI RELA SRBC AMST ECON GERM LING RELB STS AMTR ENAM GETR LNGS RELC SWAG ANTH ENCR GREE MDST RELG SWAH AR H ENEC HEBR MEST RELH SWED ARAB ENGL HIAF MSP RELI TBTN ARTH ENGN HIEA MUSI RELJ TURK ARTR ENLS HIEU PERS RELS UKR ASL ENLT HILA PETR RUSS URDU BULG ENMC HIME PHIL RUTR YIDD CCFA ENMD HIND PLAD SANS CCIA ENNC HISA PLAP SATR CCLT ENRN HIST PLCP SCAN CCSS ENSP HIUS PLIR SLAV CHIN ENWR ITAL PLPT SLFK CHTR ETP* ITTR POL SLTR CLAS FREN JAPN PORT SOC CPLT JPTR POTR SPAN';
+data.split(' ').forEach(async mnemonic => {
+    try {
+        console.log(`${mnemonic} => ${await mnemonicToName(mnemonic)}`);
+    } catch (e) {
+        console.error(`No name found for ${mnemonic}`);
+    }
+});
