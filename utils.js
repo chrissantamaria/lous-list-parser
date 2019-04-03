@@ -20,17 +20,40 @@ const mnemonicToName = async mnemonic => {
     return name;
 };
 
-const getCourses = async mnemonic => {
-    const csvData = await axios({
+const getCourses = async query => {
+    const csv = await axios({
         method: 'post',
         url: 'http://rabi.phys.virginia.edu/mySIS/CS2/deliverSearchData.php?Semester=1198',
-        data: querystring.stringify({ iMnemonic: mnemonic })
+        data: querystring.stringify({
+            iMnemonic: query.mnemonic,
+            iBuilding: query.building,
+            iDays: query.days,
+            iDescription: query.description,
+            iDiscipline: query.discipline,
+            iGroup: query.group,
+            iInstructor: query.instructor,
+            iMinCurEnroll: query.minCurrentEnroll,
+            iMaxCurEnroll: query.maxCurrentEnroll,
+            iMinCurWaitlist: query.minCurrentWaitlist,
+            iMaxCurWaitlist: query.maxCurrentWaitlist,
+            iMinPosEnroll: query.minTotalEnroll,
+            iMaxPosEnroll: query.maxTotalEnroll,
+            iNumber: query.number,
+            iRoom: query.room,
+            iStatus: query.status,
+            iTime: query.time,
+            iTitle: query.title,
+            iTopic: query.topic,
+            iType: query.type,
+            iUnits: query.units
+        })
     });
-    const csv = await csvtojson().fromString(csvData.data);
-    const groupedCourses = _(csv)
+    const courses = await csvtojson().fromString(csv.data);
+    const coursesGrouped = _(courses)
         .groupBy(course => course.Mnemonic + course.Number)
         .value();
-    return groupedCourses;
+
+    return coursesGrouped;
 };
 
 module.exports = {

@@ -17,7 +17,7 @@ app.get('/api/mnemonic', async (req, res) => {
 });
 app.get('/api/courses', async (req, res) => {
     try {
-        const courses = await getCourses(req.query.mnemonic);
+        const courses = await getCourses(req.query);
         res.status(200).json(courses);
     } catch (e) {
         console.error(e);
