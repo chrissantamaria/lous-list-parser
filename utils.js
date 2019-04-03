@@ -2,7 +2,6 @@ const axios = require('axios');
 const querystring = require('querystring');
 const { JSDOM } = require('jsdom');
 const csvtojson = require('csvtojson');
-const _ = require('lodash');
 
 const mnemonicToName = async mnemonic => {
     const page = await axios({
@@ -49,9 +48,15 @@ const getCourses = async query => {
         })
     });
     const courses = await csvtojson().fromString(csv.data);
-    const coursesGrouped = _(courses)
-        .groupBy(course => course.Mnemonic + course.Number)
-        .value();
+
+    const coursesGrouped = {};
+    for (const section of courses) {
+        const name = section.Mnemonic + section.Number;
+        if (!(name in coursesGrouped)) {
+            coursesGrouped[name] = { sections: [] };
+        }
+        coursesGrouped[name].sections.push(section);
+    }
 
     return coursesGrouped;
 };

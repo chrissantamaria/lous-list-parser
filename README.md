@@ -29,42 +29,47 @@ Sample call: `/api/courses?mnemonic=CS`
 Sample response:
 ```
 {
-    "APMA1090": [
-        {
-            "ClassNumber": "15901",
-            "Mnemonic": "APMA",
-            "Number": "1090",
-            "Section": "001",
-            "Type": "Lecture",
-            "Units": "4",
-            "Instructor(s)": "Bernard Fulgham",
-            "Days": "MoWeFr 10:00AM - 10:50AM",
-            "Room": "Thornton Hall D223",
-            "Title": "Single Variable Calculus I",
-            "Topic": "",
-            "Status": "Open",
-            "Enrollment": "0",
-            "EnrollmentLimit": "41",
-            "Waitlist": "0",
-            "CombinedWith": "",
-            "Description": "The concepts of differential and integral calculus are developed and applied to the elementary functions of a single variable.  Limits, rates of change, derivatives, and integrals.  Applications are made to problems in analytic geometry and elementary physics. For students with no exposure to high school calculus."
-        },
-        {
-            "ClassNumber": "16632",
-            "Mnemonic": "APMA",
-            "Number": "1090",
+    "APMA1090": {
+        "sections": [
+            {
+                "ClassNumber": "15901",
+                "Mnemonic": "APMA",
+                "Number": "1090",
+                "Section": "001",
+                "Type": "Lecture",
+                "Units": "4",
+                "Instructor(s)": "Bernard Fulgham",
+                "Days": "MoWeFr 10:00AM - 10:50AM",
+                "Room": "Thornton Hall D223",
+                "Title": "Single Variable Calculus I",
+                "Topic": "",
+                "Status": "Open",
+                "Enrollment": "0",
+                "EnrollmentLimit": "41",
+                "Waitlist": "0",
+                "CombinedWith": "",
+                "Description": "The concepts of differential and integral calculus are developed and applied to the elementary functions of a single variable.  Limits, rates of change, derivatives, and integrals.  Applications are made to problems in analytic geometry and elementary physics. For students with no exposure to high school calculus."
+            },
+            {
+                "ClassNumber": "16632",
+                "Mnemonic": "APMA",
+                "Number": "1090",
+                ...
+            }
             ...
-        }
-    ],
-    "APMA1110": [
-        {
-            "ClassNumber": "15450",
-            "Mnemonic": "APMA",
-            "Number": "1110",
+        ]
+    },
+    "APMA1110": {
+        "sections": [
+            {
+                "ClassNumber": "15450",
+                "Mnemonic": "APMA",
+                "Number": "1110",
+                ...
+            }
             ...
-        }
-        ...
-    ],
+        ]
+    },
     ...
 }
 ```
