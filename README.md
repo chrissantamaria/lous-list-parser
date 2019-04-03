@@ -25,7 +25,7 @@ Sample response: `Computer Science`
 
 `GET` ***/api/courses***
 
-Sample call: `/api/courses?mnemonic=CS`
+Sample call: `/api/courses?mnemonic=APMA`
 Sample response:
 ```
 {
