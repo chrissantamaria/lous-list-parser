@@ -47,35 +47,38 @@ const getCourses = async query => {
             iUnits: query.units
         })
     });
-    const courses = await csvtojson().fromString(csv.data);
+    const sections = await csvtojson().fromString(csv.data);
 
-    const coursesGrouped = {};
-    for (const section of courses) {
+    // Grouping sections using a key for each course
+    const courses = sections.reduce((obj, section) => {
         const name = section.Mnemonic + section.Number;
-        if (!(name in coursesGrouped)) {
-            coursesGrouped[name] = { sections: [] };
-        }
-        coursesGrouped[name].sections.push(section);
-    }
+        obj[name] = obj[name] || [];
+        obj[name].push(section);
+        return obj;
+    }, {});
+    // Mapping each course to an object containing an array of sections
+    const coursesGrouped = Object.keys(courses).map(key => (
+        { name: key, sections: courses[key] }
+    ));
 
-    for (const course in coursesGrouped) {
-        // Adding average GPA data to each course   
-        const gradeData = await axios({
-            method: 'get',
-            url: `https://vagrades.com/api/uvaclass/${course}`
-        });
-        // Only setting average GPA if VAGrades has data on the course
+    for (const course of coursesGrouped) {
+        // Fetching grade distribution data from VAGrades
+        const gradeData = await axios.get(`https://vagrades.com/api/uvaclass/${course.name}`);
         if (gradeData.data.course)
-            coursesGrouped[course].averageGPA = gradeData.data.course.avg;
+            course.averageGPA = gradeData.data.course.avg;
 
         // Finding all unique professors
         const professors = new Set();
-        for (const section of coursesGrouped[course].sections) {
+        for (const section of course.sections) {
             for (const professor of section['Instructor(s)'].split(',')) {
                 professors.add(professor);
             }
         }
-        coursesGrouped[course].professors = [...professors].join(', ');
+        course.professors = [...professors].join(', ');
+
+        // Grabbing the full course title from the first section
+        // (for now assuming all section titles are identical)
+        course.title = course.sections[0].Title;
     }
 
     return coursesGrouped;
