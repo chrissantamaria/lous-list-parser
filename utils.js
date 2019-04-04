@@ -65,7 +65,7 @@ const getCourses = async query => {
         // Fetching grade distribution data from VAGrades
         const gradeData = await axios.get(`https://vagrades.com/api/uvaclass/${course.name}`);
         if (gradeData.data.course)
-            course.averageGPA = gradeData.data.course.avg;
+            course.gpa = gradeData.data.course.avg;
 
         // Finding all unique professors
         const professors = new Set();

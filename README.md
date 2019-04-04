@@ -58,7 +58,7 @@ Sample response:
                 ...
             }
         ],
-        "averageGPA": 2.79833333333333,
+        "gpa": 2.79833333333333,
         "professors": "Bernard Fulgham",
         "title": "Single Variable Calculus I"
     },
@@ -79,7 +79,7 @@ Sample response:
             },
             ...
         ],
-        "averageGPA": 2.95225806451613,
+        "gpa": 2.95225806451613,
         "professors": "Meiqin Li, Monika Abramenko, Stacie Pisano, Staff",
         "title": "Single Variable Calculus II"
     },
