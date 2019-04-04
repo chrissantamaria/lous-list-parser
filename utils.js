@@ -58,6 +58,26 @@ const getCourses = async query => {
         coursesGrouped[name].sections.push(section);
     }
 
+    for (const course in coursesGrouped) {
+        // Adding average GPA data to each course   
+        const gradeData = await axios({
+            method: 'get',
+            url: `https://vagrades.com/api/uvaclass/${course}`
+        });
+        // Only setting average GPA if VAGrades has data on the course
+        if (gradeData.data.course)
+            coursesGrouped[course].averageGPA = gradeData.data.course.avg;
+
+        // Finding all unique professors
+        const professors = new Set();
+        for (const section of coursesGrouped[course].sections) {
+            for (const professor of section['Instructor(s)'].split(',')) {
+                professors.add(professor);
+            }
+        }
+        coursesGrouped[course].professors = [...professors].join(', ');
+    }
+
     return coursesGrouped;
 };
 

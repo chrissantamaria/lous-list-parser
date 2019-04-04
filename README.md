@@ -29,46 +29,49 @@ Sample call: `/api/courses?mnemonic=APMA`
 Sample response:
 ```
 {
-    "APMA1090": {
+    "STS1499": {
         "sections": [
             {
-                "ClassNumber": "15901",
-                "Mnemonic": "APMA",
-                "Number": "1090",
+                "ClassNumber": "16388",
+                "Mnemonic": "STS",
+                "Number": "1499",
                 "Section": "001",
                 "Type": "Lecture",
-                "Units": "4",
-                "Instructor(s)": "Bernard Fulgham",
-                "Days": "MoWeFr 10:00AM - 10:50AM",
-                "Room": "Thornton Hall D223",
-                "Title": "Single Variable Calculus I",
+                "Units": "3",
+                "Instructor(s)": "Catherine Baritaud",
+                "Days": "We 3:30PM - 6:00PM",
+                "Room": "Materials Science Bldg 171",
+                "Title": "Introduction to Technical Communications for Non-Native Speakers",
                 "Topic": "",
                 "Status": "Open",
                 "Enrollment": "0",
-                "EnrollmentLimit": "41",
+                "EnrollmentLimit": "20",
                 "Waitlist": "0",
                 "CombinedWith": "",
-                "Description": "The concepts of differential and integral calculus are developed and applied to the elementary functions of a single variable.  Limits, rates of change, derivatives, and integrals.  Applications are made to problems in analytic geometry and elementary physics. For students with no exposure to high school calculus."
-            },
-            {
-                "ClassNumber": "16632",
-                "Mnemonic": "APMA",
-                "Number": "1090",
-                ...
+                "Description": "Instruction in communication for students whose first language is not English. Specialized instruction in academic/content area communication as well as personal expression in a variety of settings will enable students to complete academic programs in a more efficient and timely manner. After completion of this course, students must complete STS 1500 by the end of  their first year of residency in SEAS. May be counted as an unrestricted elective."
             }
-            ...
-        ]
+        ],
+        "averageGPA": 3.37,
+        "professors": "Catherine Baritaud"
     },
-    "APMA1110": {
+    "STS1500": {
         "sections": [
             {
-                "ClassNumber": "15450",
-                "Mnemonic": "APMA",
-                "Number": "1110",
+                "ClassNumber": "16036",
+                "Mnemonic": "STS",
+                "Number": "1500",
                 ...
-            }
+            },
+            {
+                "ClassNumber": "16084",
+                "Mnemonic": "STS",
+                "Number": "1500",
+                ...
+            },
             ...
-        ]
+        ],
+        "averageGPA": 3.35333333333333,
+        "professors": "Benjamin Laugelli, Toluwalogo Odumosu, W Carlson, Matthew Henderson, Peter Westin"
     },
     ...
 }

@@ -2,8 +2,8 @@ const { mnemonicToName, getCourses } = require('./utils');
 
 const express = require('express');
 const app = express();
-app.listen(8080, () => {
-    console.log('Server listening on 8080');
+app.listen(4200, () => {
+    console.log('Server listening on 4200');
 });
 
 app.get('/api/mnemonic', async (req, res) => {
