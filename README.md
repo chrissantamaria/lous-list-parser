@@ -2,7 +2,7 @@
 
 Web scaping API server using Lou's List to grab University of Virginia course information
 
-# Current features
+## Current features
 * Converting from course mnemonics (ex: 'MDST') to full department names (ex: 'Media Studies')
 * Fetching all course sections for a given course mnemonic, organized by course name
 
