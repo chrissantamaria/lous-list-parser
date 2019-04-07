@@ -9,18 +9,18 @@ app.listen(4200, () => {
 app.get('/api/mnemonic', async (req, res) => {
     try {
         const name = await mnemonicToName(req.query.mnemonic);
-        res.status(200).send(name);
+        res.status(200).json({ data: { name: name } });
     } catch (e) {
-        console.error(e);
-        res.status(400).send(e.stack);
+        console.error('/api/mnemonic error:', e);
+        res.status(400).json({ error: e.stack });
     }
 });
 app.get('/api/courses', async (req, res) => {
     try {
         const courses = await getCourses(req.query);
-        res.status(200).json(courses);
+        res.status(200).json({ data: courses });
     } catch (e) {
-        console.error(e);
-        res.status(400).send(e.stack);
+        console.error('/api/courses error:', e);
+        res.status(400).json({ error: e.stack });
     }
 });
