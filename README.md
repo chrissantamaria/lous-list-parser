@@ -125,3 +125,8 @@ Sample response:
     ]
 }
 ```
+
+## Config Options
+Name | Type | Description
+--- | --- | ---
+`semester` | `number` | Semester code for a specific enrollment period (see Lou's List for valid codes). By default, lous-list-parser uses 1198 (Spring 2019).

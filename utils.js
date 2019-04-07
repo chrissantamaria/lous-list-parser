@@ -3,10 +3,12 @@ const querystring = require('querystring');
 const { JSDOM } = require('jsdom');
 const csvtojson = require('csvtojson');
 
+const config = require('./config.json');
+
 const mnemonicToName = async mnemonic => {
     const page = await axios({
         method: 'post',
-        url: 'http://rabi.phys.virginia.edu/mySIS/CS2/page.php?Semester=1198&Type=Search',
+        url: `http://rabi.phys.virginia.edu/mySIS/CS2/page.php?Semester=${config.semester}&Type=Search`,
         data: querystring.stringify({ iMnemonic: mnemonic })
     });
     const dom = new JSDOM(page.data);
@@ -22,7 +24,7 @@ const mnemonicToName = async mnemonic => {
 const getCourses = async query => {
     const csv = await axios({
         method: 'post',
-        url: 'http://rabi.phys.virginia.edu/mySIS/CS2/deliverSearchData.php?Semester=1198',
+        url: `http://rabi.phys.virginia.edu/mySIS/CS2/deliverSearchData.php?Semester=${config.semester}`,
         data: querystring.stringify({
             iMnemonic: query.mnemonic,
             iBuilding: query.building,
