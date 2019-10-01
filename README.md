@@ -28,7 +28,7 @@ npm start
 
 Name | Type | Description
 --- | --- | ---
-`mnemonic` | `string` | Mnemonic abreviation of a course department
+`mnemonic` | `string` | Mnemonic abbreviation of a course department
 
 Sample call: `/api/mnemonic?mnemonic=CS`
 
@@ -45,7 +45,7 @@ Sample response:
 
 Name | Type | Description
 --- | --- | ---
-`mnemonic` | `string` | Mnemonic abreviation of a course department
+`mnemonic` | `string` | Mnemonic abbreviation of a course department
 `number` | `string` | Course number
 `instructor` | `string` | Section instructor
 `status` | `string` | "Open", "Closed", or "Wait List"
