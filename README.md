@@ -2,6 +2,12 @@
 
 Web scaping API server using Lou's List to grab University of Virginia course information
 
+## Notice
+
+Due to the revamped SIS interface and addition of a fully public course search page, this package is no longer necessary! New SIS is powered by React and uses authentication-less API endpoints for fetching course data. These endpoints and possible query parameters can be found with something tools like [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/network/reference#headers).
+
+Though this tool was a proof-of-concept from the start, feel free to use as a reference for other potential web scrapers.
+
 ## Current features
 * Converting from course mnemonics (ex: 'MDST') to full department names (ex: 'Media Studies')
 * Fetching all course sections for a given course mnemonic, organized by course name
