@@ -12,7 +12,7 @@
   "dependencies": {
     "axios": "^0.18.1",
     "csvtojson": "^2.0.8",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jsdom": "^14.0.0"
   }
 }
